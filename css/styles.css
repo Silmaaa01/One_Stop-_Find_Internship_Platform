@@ -1,0 +1,89 @@
+/* ===== One Stop Find Internship — Design tokens & base ===== */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,600&family=Space+Grotesk:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap');
+
+:root{
+  --cream:#fbf1d9; --paper:#fff8e7; --yellow:#f6d55c; --orange:#d9622b;
+  --tomato:#e5412d; --green:#2f5d3a; --teal:#3f8f8b; --brown:#3a2418;
+  --lime:#c6f432; --purple:#8b5cf6; --ink:#2a1a12;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'Space Grotesk',system-ui,sans-serif;
+  --font-mono:'DM Mono',ui-monospace,monospace;
+  --border:3px solid var(--ink);
+  --shadow:5px 5px 0 var(--ink); --shadow-sm:3px 3px 0 var(--ink);
+  --radius:14px; --radius-alt:18px 8px 16px 10px;
+  --max:1180px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font:400 1.0625rem/1.6 var(--font-body); color:var(--ink);
+  background-color:var(--cream);
+  background-image:radial-gradient(rgba(58,36,24,.09) 1px,transparent 1.2px);
+  background-size:7px 7px; /* halftone dots */
+  min-height:100vh; display:flex; flex-direction:column;
+}
+main{flex:1}
+img,svg{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:900;line-height:1.08;margin:0 0 .5em;letter-spacing:-.01em}
+h1{font-size:clamp(2.4rem,6vw,4.6rem)} h2{font-size:clamp(1.8rem,3.5vw,2.8rem)} h3{font-size:1.4rem}
+p{margin:0 0 1em;max-width:68ch}
+a{color:var(--green);text-underline-offset:3px}
+.container{width:min(100% - 2rem,var(--max));margin-inline:auto}
+.section{padding:clamp(2.5rem,6vw,5rem) 0}
+.mono{font-family:var(--font-mono)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:4px solid var(--purple);outline-offset:3px;border-radius:4px}
+[hidden]{display:none!important}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;
+  font:700 1rem var(--font-body);color:var(--ink);background:var(--yellow);
+  border:var(--border);border-radius:var(--radius);padding:.7rem 1.2rem;
+  box-shadow:var(--shadow-sm);text-decoration:none;min-height:44px;
+  transition:transform .12s,box-shadow .12s;
+}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
+.btn-primary{background:var(--tomato);color:#fff}
+.btn-green{background:var(--green);color:#fff}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-ghost{background:var(--paper)}
+.btn-danger{background:var(--ink);color:#fff}
+.btn-sm{padding:.4rem .8rem;font-size:.9rem;min-height:36px}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+
+/* Cards */
+.card{background:var(--paper);border:var(--border);border-radius:var(--radius-alt);box-shadow:var(--shadow);padding:1.25rem;position:relative}
+.card-flat{box-shadow:none}
+.grid{display:grid;gap:1.5rem}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-auto{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+
+/* Badges & status stickers */
+.badge{display:inline-block;font:500 .8rem var(--font-mono);padding:.15rem .6rem;border:2px solid var(--ink);border-radius:999px;background:var(--cream)}
+.badge-remote{background:var(--lime)} .badge-hybrid{background:var(--yellow)} .badge-onsite{background:#f5b49c}
+.badge-paid{background:var(--green);color:#fff} .badge-unpaid{background:var(--cream)}
+.status{font:700 .8rem var(--font-mono);padding:.2rem .7rem;border:2px solid var(--ink);border-radius:6px;transform:rotate(-2deg);display:inline-block}
+.status-applied{background:var(--cream)} .status-review{background:var(--yellow)}
+.status-shortlisted{background:var(--lime)} .status-interview{background:var(--purple);color:#fff}
+.status-selected{background:var(--green);color:#fff} .status-rejected{background:var(--tomato);color:#fff}
+.status-withdrawn{background:#ccc}
+
+/* Forms */
+.field{margin-bottom:1.1rem}
+label{display:block;font-weight:700;margin-bottom:.3rem}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:#fff;min-height:44px;border:var(--border);border-radius:10px;padding:.55rem .8rem}
+textarea{min-height:110px;resize:vertical}
+input[aria-invalid="true"],select[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--tomato);background:#fff0ec}
+.error-msg{color:#b3261e;font:500 .85rem var(--font-mono);margin-top:.3rem;min-height:1em}
+.hint{font:400 .85rem var(--font-mono);opacity:.75}
+
+/* Retro helpers */
+.marquee-tag{display:inline-block;background:var(--ink);color:var(--lime);font:500 .85rem var(--font-mono);padding:.2rem .7rem;border-radius:4px}
+.demo-banner{background:var(--ink);color:var(--yellow);font:500 .8rem var(--font-mono);text-align:center;padding:.35rem 1rem}
+.empty{text-align:center;padding:3rem 1rem;border:3px dashed var(--ink);border-radius:var(--radius);background:var(--paper)}
+.skeleton{background:linear-gradient(90deg,#eadfc2 25%,#f6ecd0 50%,#eadfc2 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:8px;min-height:1rem}
+@keyframes shimmer{to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
